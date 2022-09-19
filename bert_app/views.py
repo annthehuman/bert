@@ -1,4 +1,3 @@
-import readline
 from django.http import HttpResponse
 import json
 import torch
