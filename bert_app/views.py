@@ -45,9 +45,9 @@ class BertClassifier:
 
 @csrf_exempt
 def classificate(request):
-    print(request.POST)
+    # print(request.POST)
     if request.method == 'POST':
-        print(request.POST)
+        # print(request.POST)
         text = request.POST['text']
         cls = BertClassifier(tokenizer_path='cointegrated/rubert-tiny', model_save_path='./content/bert_full_30.pt')
         predict = cls.predict(text)
@@ -66,14 +66,14 @@ def get_data(request):
         # print(theme)
         df = pd.read_csv('./content/data_clear.csv')
         # df['Название тематики'] = theme["0"]
-        print(df)
+        # print(df)
         # df.replace(theme, inplace=True)
         # print(df['Тематика'].values)
         # d = dict.fromkeys(df['Тематика'].values, [])
         grouped = df.groupby(['Тематика'])['Вопрос абонента'].apply(list).to_dict()
         for key, item in theme["0"].items():
-            print('hhh', theme["0"])
-            grouped[item] = grouped.pop(key)[:20]
+            # print('hhh', theme["0"])
+            grouped[item] = grouped.pop(key)[:3]
         # for i, row in df.iterrows():
         #     d[row['Тематика']].append(row['Вопрос абонента'])
         # with open('data.csv', 'w')as f:
