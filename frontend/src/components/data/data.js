@@ -4,6 +4,7 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import CircularProgress from '@mui/material/CircularProgress'
 
 export default class Data extends Component {
     constructor(props){
@@ -52,7 +53,7 @@ export default class Data extends Component {
                     <div id={item}>
                     </div>
                 </AccordionDetails>
-            </Accordion>) }): null
+            </Accordion>) }): <CircularProgress />
         }
       </div>
       );

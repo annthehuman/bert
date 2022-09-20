@@ -45,9 +45,7 @@ class BertClassifier:
 
 @csrf_exempt
 def classificate(request):
-    # print(request.POST)
     if request.method == 'POST':
-        # print(request.POST)
         text = request.POST['text']
         cls = BertClassifier(tokenizer_path='cointegrated/rubert-tiny', model_save_path='./content/bert_full_30.pt')
         predict = cls.predict(text)
@@ -63,28 +61,8 @@ def classificate(request):
 def get_data(request):
     if request.method == 'GET':
         theme = pd.read_csv('./content/theme_number.csv').to_dict()
-        # print(theme)
         df = pd.read_csv('./content/data_clear.csv')
-        # df['Название тематики'] = theme["0"]
-        # print(df)
-        # df.replace(theme, inplace=True)
-        # print(df['Тематика'].values)
-        # d = dict.fromkeys(df['Тематика'].values, [])
         grouped = df.groupby(['Тематика'])['Вопрос абонента'].apply(list).to_dict()
         for key, item in theme["0"].items():
-            # print('hhh', theme["0"])
             grouped[item] = grouped.pop(key)[:3]
-        # for i, row in df.iterrows():
-        #     d[row['Тематика']].append(row['Вопрос абонента'])
-        # with open('data.csv', 'w')as f:
-            
-        # print('hhjhj')
-
-        # print(d['akciya_privedi_druga'])
-        # with open('./content/data_clear.csv') as f:
-        #     file = f.readlines()c16436829c3620aa7466932c4780e115b09510ce
-        #     theme = {}
-        #     for line in file:
-        #         line = line.strip()
-        #         theme[line.split(',')[0]] = line.split(',')[1]
         return HttpResponse(json.dumps(grouped))
