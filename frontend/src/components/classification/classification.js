@@ -57,13 +57,13 @@ export default class Classification extends Component {
 }
     render () {  
         return (
-        <Box sx={{ width: '70%', typography: 'body1', margin: "0 auto"}}>
+        <Box sx={{  typography: 'body1', margin: "0 auto"}}>
           <form onSubmit={this.handleSubmit}>
           <Stack
            justifyContent="center"
            alignItems="center"
            spacing={2}>
-          <TextField sx={{width: '700px'}} id="outlined-basic" label="Введите текст" variant="outlined" onChange={this.handleChange} />
+          <TextField sx={{width: '90%'}} id="outlined-basic" label="Введите текст" variant="outlined" onChange={this.handleChange} />
           <LoadingButton
           loading={this.state.loading}
           variant="outlined"

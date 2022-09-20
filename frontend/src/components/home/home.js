@@ -20,7 +20,7 @@ export default class Home extends Component {
         this.setState({value: newValue});
     }
     render () {  return (
-        <Box sx={{ width: '70%', typography: 'body1', margin: "0 auto"}}>
+        <Box sx={{ width: '90%', typography: 'body1', margin: "0 auto"}}>
           <TabContext value={this.state.value}>
             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
               <TabList onChange={this.handleChange} aria-label="lab API tabs example">
